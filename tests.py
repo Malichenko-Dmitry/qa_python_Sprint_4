@@ -103,3 +103,18 @@ class TestBooksCollector:
         collector.add_new_book(book_name)
         collector.set_book_genre(book_name, genre)
         assert collector.get_book_genre(book_name) == genre
+
+    def test_get_book_genre(self):
+        collector = BooksCollector()
+        collector.add_new_book('1984')
+        collector.set_book_genre('1984', 'Фантастика')
+        assert collector.get_book_genre('1984') == 'Фантастика'
+
+    def test_get_existing_book_without_genre(self):
+        collector = BooksCollector()
+        collector.add_new_book('Моби Дик')
+        assert collector.get_book_genre('Моби Дик') == ''
+
+    def test_get_non_existing_book(self):
+        collector = BooksCollector()
+        assert collector.get_book_genre('Неизвестная книга') is None
