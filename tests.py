@@ -26,7 +26,7 @@ class TestBooksCollector:
         collector = BooksCollector()
         collector.add_new_book('1984')
         collector.add_new_book('1984')
-        assert collector.get_books_genre() == ['1984']
+        assert collector.get_books_genre() == {'1984': ''}
 
     def test_add_new_book_too_long_name(self):
         collector = BooksCollector()
