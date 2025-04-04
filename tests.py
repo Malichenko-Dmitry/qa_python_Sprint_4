@@ -13,7 +13,8 @@ class TestBooksCollector:
     def test_get_books_genre_after_adding_book(self):
         collector = BooksCollector()
         collector.add_new_book('Гордость и предубеждение и зомби')
-        assert collector.get_books_genre() == ['Гордость и предубеждение и зомби']
+        books_genre = collector.get_books_genre()
+        assert books_genre == {'Гордость и предубеждение и зомби': ''}
 
     def test_add_new_book_duplicate(self):
         collector = BooksCollector()
